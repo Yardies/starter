@@ -40,8 +40,7 @@ export const useFetchHeroText = () => {
 
   const getData = async () => {
     try {
-      const fetcher = await client.getEntries({ content_type: 'Hero-Text' })
-      console.log(fetcher)
+      const fetcher = await client.getEntry('7b2Qz7hnVr3lITbkaDoE4u')
       const text = fetcher.fields.heroText
       setText(text)
       setLoading(false)
