@@ -10,7 +10,6 @@ const Projects = () => {
       </div>
       <div className="projects-center">
         {projects.map((project) => {
-          console.log(projects)
           const { id, url, title, img } = project
           return (
             <a href={url} className="project" key={id}>

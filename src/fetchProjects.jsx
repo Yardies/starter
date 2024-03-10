@@ -33,3 +33,27 @@ export const useFetchProjects = () => {
 
   return { projects, loading }
 }
+
+export const useFetchHeroText = () => {
+  const [text, setText] = useState('')
+  const [loading, setLoading] = useState(true)
+
+  const getData = async () => {
+    try {
+      const fetcher = await client.getEntries({ content_type: 'Hero-Text' })
+      console.log(fetcher)
+      const text = fetcher.fields.heroText
+      setText(text)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  return { text, loading }
+}
